@@ -1,7 +1,6 @@
 'use strict';
 
 const _ = require('lodash');
-const npid = require('npid');
 
 const cluster = require('cluster');
 const cpuCount = require('os').cpus().length;
@@ -42,8 +41,13 @@ if (cluster.isMaster) {
   });
 
   try {
-    //const pid = npid.create('/var/run/tttd/tttd.pid');
-    //pid.removeOnExit();
+    console.log(`Cluster uid/gid: ${process.getuid()}/${process.getgid()}`);
+    if (process.getuid() === 0) {
+      console.log('Running as root; dropping privilege.');
+      process.setgid('ttt');
+      process.setuid('ttt');
+      console.log(`Cluster uid/gid: ${process.getuid()}/${process.getgid()}`);
+    }
   } catch(err) {
     console.log('Unable to write PIDfile: ', err);
     process.exit(1);

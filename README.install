@@ -9,9 +9,9 @@ To install as a systemd service:
   npm install -g forever service-systemd
 
   # adduser ttt -s /sbin/nologin
-  # mkdir /var/log/tttd /var/run/tttd
-  # chown ttt:ttt /var/log/tttd /var/run/tttd
-  # chmod 755 /var/log/tttd /var/run/tttd
+  # mkdir /var/log/tttd
+  # chown ttt:ttt /var/log/tttd
+  # chmod 755 /var/log/tttd
 
 On CentOS 7/systemd, you may try to use the included service template:
   # node-systemd add scripts/service-template.json
