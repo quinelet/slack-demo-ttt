@@ -12,16 +12,11 @@ lib/controller/TicTacToeController:
 routes/ttt:
   Slack custom command endpoint.  Verifies API token, parses slack command strings.
 
-worker:
-  web worker for the tic tac toe application. Loads config from config/config.js.
-
-ttt-daemon:
-  daemon and control process, spawns one worker per CPU, unless configured to do otherwise.
-
-  Usage:
-    'node ttt-daemon.js': run commandline
-    'node ttt-daemon.js -D': run in daemon mode
-
 config/config.js:
   See here for specific configuration options.
 
+worker:
+  web worker for the tic tac toe application. Loads config from config/config.js.
+
+cluster:
+  spawns one worker per CPU.
