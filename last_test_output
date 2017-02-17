@@ -11,32 +11,33 @@ Running "run:testsAndCoverage" (run) task
 
 
 
-worker 7034 listening: ok
+worker 6759 listening: ok
   worker
-worker 7034 listening: ok
-    ✓ provides status ok (48ms)
+worker 6759 listening: ok
+    ✓ provides status ok (49ms)
     ✓ unknown route 404
-worker 7034 Logging error: exportable error message
+worker 6759 Logging error: exportable error message
     ✓ sends custom errors
-worker 7034 Logging error: 
+worker 6759 Logging error: 
     ✓ sends generic errors
-worker 7034 Logging error: detailed error text here
+worker 6759 Logging error: detailed error text here
     ✓ eats detailed errors
 
   TicTacToeController
     challenge
       ✓ allows a game to be created new in a channel
       ✓ does not allow new games to be created if one is running
-      ✓ allows a game to be created if the last game has ended (98ms)
+      ✓ allows a game to be created if the last game has ended (83ms)
     move
       ✓ returns a usermessage for moves on non-existent games
       ✓ reports moves as user messages
-      ✓ reports game outcomes (84ms)
+      ✓ reports game outcomes (69ms)
     status
       ✓ returns a userMessage object for an existing game
       ✓ returns a usermessage object for nonexisting game
       ✓ returns a usermessage object for completed game where X won
       ✓ returns a usermessage object for completed game where O won
+      ✓ returns a usermessage object for completed cats game
 
   GameModel
     getWinner
@@ -70,14 +71,14 @@ worker 7034 Logging error: detailed error text here
   route-ttt
     Slack endpoint basics
       ✓ tolerates Slack ssl_check queries
-worker 7034 Logging error: Incorrect Slack command token!
+worker 6759 Logging error: Incorrect Slack command token!
       ✓ rejects bad Slack api token
     command unrecognized
       ✓ provides command help
     command help
       ✓ provides command help
     command challenge
-      ✓ rejects bad parameters (43ms)
+      ✓ rejects bad parameters (45ms)
       ✓ creates a game
     command status
       ✓ rejects bad parameters
@@ -87,7 +88,7 @@ worker 7034 Logging error: Incorrect Slack command token!
       ✓ rejects bad parameters
       ✓ aborts a running game
     command move
-      ✓ rejects bad parameters (69ms)
+      ✓ rejects bad parameters (70ms)
       ✓ reject move on nonexisting game
       ✓ move on existing game
 
@@ -100,7 +101,7 @@ worker 7034 Logging error: Incorrect Slack command token!
       ✓ returns slack message without board
 
 
-  53 passing (1s)
+  54 passing (1s)
 
 --------------------------------|----------|----------|----------|----------|----------------|
 File                            |  % Stmts | % Branch |  % Funcs |  % Lines |Uncovered Lines |
