@@ -1,0 +1,130 @@
+Running "jshint:uses_defaults" (jshint) task
+>> 11 files lint free.
+
+Running "jshint:test_overrides" (jshint) task
+>> 21 files lint free.
+
+Running "run:testsAndCoverage" (run) task
+
+> tttd@0.0.1 test /opt/slack-demo-ttt
+> mocha "test/**/*.js"
+
+
+
+worker 7034 listening: ok
+  worker
+worker 7034 listening: ok
+    ✓ provides status ok (48ms)
+    ✓ unknown route 404
+worker 7034 Logging error: exportable error message
+    ✓ sends custom errors
+worker 7034 Logging error: 
+    ✓ sends generic errors
+worker 7034 Logging error: detailed error text here
+    ✓ eats detailed errors
+
+  TicTacToeController
+    challenge
+      ✓ allows a game to be created new in a channel
+      ✓ does not allow new games to be created if one is running
+      ✓ allows a game to be created if the last game has ended (98ms)
+    move
+      ✓ returns a usermessage for moves on non-existent games
+      ✓ reports moves as user messages
+      ✓ reports game outcomes (84ms)
+    status
+      ✓ returns a userMessage object for an existing game
+      ✓ returns a usermessage object for nonexisting game
+      ✓ returns a usermessage object for completed game where X won
+      ✓ returns a usermessage object for completed game where O won
+
+  GameModel
+    getWinner
+      ✓ detects col wins
+      ✓ detects row wins
+      ✓ detects diagonal wins
+      ✓ detects cats game
+      ✓ detects no-winner when no winner yet
+    createGame
+      ✓ created games pass validation
+      ✓ first player is randomly chosen
+    player utility functions
+      ✓ player queries work as expected
+    applyMove
+      ✓ invalid indexes are handled
+      ✓ players cannot play in a game that does not include them
+      ✓ players cannot move when it is not their turn
+      ✓ players cannot move in an occupied space
+      ✓ correct player is X, O
+      ✓ completed games reject further moves
+    loadGame
+      ✓ finds existing games
+      ✓ returns null/undefined on no-such-game
+    saveGame
+      ✓ can save
+      ✓ can save again
+      ✓ games that dont pass schema are rejected
+    e2e
+      ✓ create-load-move-save-load
+
+  route-ttt
+    Slack endpoint basics
+      ✓ tolerates Slack ssl_check queries
+worker 7034 Logging error: Incorrect Slack command token!
+      ✓ rejects bad Slack api token
+    command unrecognized
+      ✓ provides command help
+    command help
+      ✓ provides command help
+    command challenge
+      ✓ rejects bad parameters (43ms)
+      ✓ creates a game
+    command status
+      ✓ rejects bad parameters
+      ✓ get game status on nonexisting game
+      ✓ get game status on existing game
+    command abort
+      ✓ rejects bad parameters
+      ✓ aborts a running game
+    command move
+      ✓ rejects bad parameters (69ms)
+      ✓ reject move on nonexisting game
+      ✓ move on existing game
+
+  UserMessage
+    construct
+      ✓ constructs private messages
+      ✓ constructs public messages
+    getSlackMessage
+      ✓ returns slack message with board
+      ✓ returns slack message without board
+
+
+  53 passing (1s)
+
+--------------------------------|----------|----------|----------|----------|----------------|
+File                            |  % Stmts | % Branch |  % Funcs |  % Lines |Uncovered Lines |
+--------------------------------|----------|----------|----------|----------|----------------|
+All files                       |      100 |      100 |      100 |      100 |                |
+ slack-demo-ttt                 |      100 |      100 |      100 |      100 |                |
+  worker.js                     |      100 |      100 |      100 |      100 |                |
+ slack-demo-ttt/config          |      100 |      100 |      100 |      100 |                |
+  config.js                     |      100 |      100 |      100 |      100 |                |
+ slack-demo-ttt/lib/controller  |      100 |      100 |      100 |      100 |                |
+  TicTacToeController.js        |      100 |      100 |      100 |      100 |                |
+ slack-demo-ttt/lib/definitions |      100 |      100 |      100 |      100 |                |
+  GameDefinitions.js            |      100 |      100 |      100 |      100 |                |
+ slack-demo-ttt/lib/model       |      100 |      100 |      100 |      100 |                |
+  GameModel.js                  |      100 |      100 |      100 |      100 |                |
+ slack-demo-ttt/lib/schemas     |      100 |      100 |      100 |      100 |                |
+  GameSchema.js                 |      100 |      100 |      100 |      100 |                |
+ slack-demo-ttt/lib/util        |      100 |      100 |      100 |      100 |                |
+  Errors.js                     |      100 |      100 |      100 |      100 |                |
+  SlackMisc.js                  |      100 |      100 |      100 |      100 |                |
+  UserMessage.js                |      100 |      100 |      100 |      100 |                |
+  random.js                     |      100 |      100 |      100 |      100 |                |
+ slack-demo-ttt/routes          |      100 |      100 |      100 |      100 |                |
+  ttt.js                        |      100 |      100 |      100 |      100 |                |
+--------------------------------|----------|----------|----------|----------|----------------|
+
+Done.
