@@ -45,11 +45,14 @@ function handleCommand(context, cb) {
           return cb(null, ttt_command_error(context));
         }
 
-        // extract username and userid from other player
-        const results = other_player.match(/<@([a-zA-Z0-9]+)\|([a-zA-Z0-9_.\-]+?)>/);
+        // extract user_id, username from Slack-resolved user string
+        // TODO(q) - verify user_id is stably [A-Za-z0-9]+.
+        // TODO(q) - test utf8 user_names
+        const results = other_player.match(/<@([a-zA-Z0-9]+)\|([^>]+?)>/);
         if (!results || !results[1] || !results[2]) {
           return cb(null, ttt_command_error(context, 'Please use @-style usernames when creating a game.'));
         }
+
         const otherUser = {
           user_id: results[1],
           user_name: results[2]

@@ -6,6 +6,8 @@ General Code Structure:
 lib/model/GameModel:
   Direct manipulation of boards and utility functions on boards:
     loading, saving, figuring out who X is and who went first, applying moves, determining winners.
+  Joi validation required to save to db.
+
 lib/controller/TicTacToeController:
   Game logic. TicTacToe game commands are implemented here, and return UserMessages.
 
@@ -16,7 +18,14 @@ config/config.js:
   See here for specific configuration options.
 
 worker:
-  web worker for the tic tac toe application. Loads config from config/config.js.
+  web worker for the tic tac toe application
+  loads config from config/config.js
+  express error handling.
 
 cluster:
   spawns one worker per CPU.
+
+TODO:
+  2017/02/17(q): cluster needs tests (but also needs to be massaged to work with non-systemd setups)
+  2017/02/17(q): verify channel_id constraints for e.g. <@WUR124124|username> parsing
+  2017/02/17(q): utf-8 username test
