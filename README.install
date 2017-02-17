@@ -4,6 +4,8 @@ To install as a systemd service:
 
   Deploy application to: /opt/slack-demo-ttt
 
+  Edit config/config as needed (requires: SSL certs, a mongo db)
+
   npm install
 
   npm install -g forever service-systemd
