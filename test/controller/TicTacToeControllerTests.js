@@ -274,5 +274,44 @@ describe('TicTacToeController', function() {
         cb();
       });
     });
+    it('returns a usermessage object for completed cats game', function(cb) {
+      useRandomStub = true;
+      randomOverride = 0;
+      async.waterfall([
+        _.partial(TicTacToeController.challenge, 'status_test_game_5', p1, p2),
+        function(message, cb) {
+          expect(message.text).toContain('Here comes a new challenger!');
+          // win the game for p1
+          const sequence = [
+            [p1, 1, 1], [p2, 2, 2],
+            [p1, 3, 2], [p2, 3, 1],
+            [p1, 1, 3], [p2, 2, 3],
+            [p1, 2, 1], [p2, 1, 2],
+            [p1, 3, 3]
+          ];
+          async.mapSeries(sequence, function(move, cb) {
+            TicTacToeController.move('status_test_game_5', move[0], move[1], move[2], cb);
+          }, function(err, res) {
+            if (err) { return cb(err); }
+            // return the last status message, which includes the win announcements as appropriate
+            cb(null, _.last(res));
+          });
+        },
+        function(message, cb) {
+          expect(message.text).toContain('Cats game');
+          TicTacToeController.status('status_test_game_5', cb);
+        }
+      ], function(err, userMessage) {
+        expect(err).toNotExist();
+        expect(userMessage).toExist();
+        expect(userMessage.game.move).toEqual(9);
+        expect(userMessage.game.outcome).toEqual('NONE');
+        const slackMessage = userMessage.getSlackMessage();
+        expect(slackMessage.text).toNotContain('[O] won');
+        expect(slackMessage.text).toNotContain('[X] won');
+        expect(slackMessage.text).toContain('Cats game!');
+        cb();
+      });
+    });
   });
 });
