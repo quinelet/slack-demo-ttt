@@ -23,7 +23,7 @@ worker:
   express error handling.
 
 cluster:
-  spawns one worker per CPU.
+  spawns one worker per CPU. Drops privileges to user 'ttt' if spawned as root.
 
 TODO:
   2017/02/17(q): cluster.js needs tests (but also needs to be massaged to work with non-systemd setups)
