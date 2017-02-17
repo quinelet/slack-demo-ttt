@@ -46,8 +46,8 @@ function handleCommand(context, cb) {
         }
 
         // extract user_id, username from Slack-resolved user string
-        // TODO(q) - verify user_id is stably [A-Za-z0-9]+.
-        // TODO(q) - test utf8 user_names
+        // NB: assumes user_id [A-Za-z0-9]+, uname not contain >.
+        //   Seems unlikely to change but no guarantees found.
         const results = other_player.match(/<@([a-zA-Z0-9]+)\|([^>]+?)>/);
         if (!results || !results[1] || !results[2]) {
           return cb(null, ttt_command_error(context, 'Please use @-style usernames when creating a game.'));

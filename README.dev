@@ -26,6 +26,4 @@ cluster:
   spawns one worker per CPU.
 
 TODO:
-  2017/02/17(q): cluster needs tests (but also needs to be massaged to work with non-systemd setups)
-  2017/02/17(q): verify channel_id constraints for e.g. <@WUR124124|username> parsing
-  2017/02/17(q): utf-8 username test
+  2017/02/17(q): cluster.js needs tests (but also needs to be massaged to work with non-systemd setups)
