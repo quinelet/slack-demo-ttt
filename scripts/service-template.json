@@ -1,0 +1,16 @@
+{
+    "name": "tttd",
+    "description": "A TicTacToe daemon (Slack Custom Command)",
+    "path": "/opt/slack-demo-ttt/",
+    "script": "cluster.js",
+    "pid": "/var/run/tttd/tttd.pid",
+    "log": "/var/log/tttd/log",
+    "error": "/var/log/tttd/error",
+    "wrap": "forever",
+    "wrap.bin": "/usr/bin/forever",
+    "logrotate": "logrotate",
+    "logrotate.rotate": "10",
+    "logrotate.frequency": "daily",
+    "user": "ttt",
+    "group": "ttt"
+}

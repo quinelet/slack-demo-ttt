@@ -1,0 +1,20 @@
+This process tested on: CentOS Linux 7.3
+
+To install as a systemd service:
+
+  Deploy application to: /opt/slack-demo-ttt
+
+  npm install
+
+  npm install -g forever service-systemd
+
+  # adduser ttt -s /sbin/nologin
+  # mkdir /var/log/tttd /var/run/tttd
+  # chown ttt:ttt /var/log/tttd /var/run/tttd
+  # chmod 755 /var/log/tttd /var/run/tttd
+
+On CentOS 7/systemd, you may try to use the included service template:
+  # node-systemd add scripts/service-template.json
+  # systemctl enable tttd
+  # systemctl start tttd
+

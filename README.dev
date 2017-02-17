@@ -1,0 +1,27 @@
+For development:
+   * npm install -g jshint grunt
+
+General Code Structure:
+
+lib/model/GameModel:
+  Direct manipulation of boards and utility functions on boards:
+    loading, saving, figuring out who X is and who went first, applying moves, determining winners.
+lib/controller/TicTacToeController:
+  Game logic. TicTacToe game commands are implemented here, and return UserMessages.
+
+routes/ttt:
+  Slack custom command endpoint.  Verifies API token, parses slack command strings.
+
+worker:
+  web worker for the tic tac toe application. Loads config from config/config.js.
+
+ttt-daemon:
+  daemon and control process, spawns one worker per CPU, unless configured to do otherwise.
+
+  Usage:
+    'node ttt-daemon.js': run commandline
+    'node ttt-daemon.js -D': run in daemon mode
+
+config/config.js:
+  See here for specific configuration options.
+

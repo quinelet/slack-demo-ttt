@@ -1,0 +1,35 @@
+{
+  "name": "ttt-webapp",
+  "version": "0.0.1",
+  "description": "Tic-tac-toe web-app for Slack (TM)",
+  "main": "app.js",
+  "scripts": {
+    "start": "node ttt-daemon.js",
+    "init": "node scripts/initCounters.js",
+    "test": "mocha \"test/**/*.js\"",
+    "style": "jshint -c jshintrc --exclude ./node_modules ."
+  },
+  "dependencies": {
+    "async": "2.1.4",
+    "daemon": "1.1.0",
+    "express": "4.14.0",
+    "joi": "10.0.5",
+    "langUtils": "git+https://github.com/blendlabs/node-lang-utils#961c1de",
+    "lodash": "4.17.2",
+    "monk": "4.0.0",
+    "npid": "0.4.0"
+  },
+  "devDependencies": {
+    "expect": "1.20.2",
+    "grunt": "^1.0.1",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-run": "^0.6.0",
+    "html-file-cov": "^1.0.0",
+    "jslint": "0.10.3",
+    "mocha": "^3.2.0",
+    "nyc": "^10.0.0",
+    "proxyquire": "^1.7.10",
+    "supertest": "^2.0.1",
+    "uuid": "^3.0.1"
+  }
+}
